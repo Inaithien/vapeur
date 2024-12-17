@@ -1,0 +1,49 @@
+<div class="edit-game">
+    <h2>Edit Game: {{game.title}}</h2>
+    
+    <form action="/games/{{game.id}}/edit" method="POST">
+        <div>
+            <label>Title:</label>
+            <input type="text" name="title" value="{{game.title}}">
+        </div>
+
+        <div>
+            <label>Description:</label>
+            <textarea name="description">{{game.description}}</textarea>
+        </div>
+
+        <div>
+            <label>Release Date:</label>
+            <input type="date" name="releaseDate" value="{{game.releaseDate}}">
+        </div>
+
+        <div>
+            <label>Genre:</label>
+            <select name="genreId">
+                {{#each genres}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../game.genreId)}}selected{{/if}}>
+                        {{this.name}}
+                    </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div>
+            <label>Publisher:</label>
+            <select name="publisherId">
+                {{#each publishers}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../game.publisherId)}}selected{{/if}}>
+                        {{this.name}}
+                    </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div>
+            <label>Featured:</label>
+            <input type="checkbox" name="featured" {{#if game.featured}}checked{{/if}}>
+        </div>
+
+        <button type="submit">Update Game</button>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+<div class="game-details">
+   <h2>{{game.title}}</h2>
+   
+   <div class="content">
+       <p>{{game.description}}</p>
+       <p>Release Date: {{game.releaseDate}}</p>
+       <p>Genre: {{game.genre.name}}</p>
+       <p>Publisher: {{game.publisher.name}}</p>
+   </div>
+   
+   <div class="button-group">
+       <a href="/games/{{game.id}}/edit" class="btn btn-primary">Edit Game</a>
+       <form action="/games/{{game.id}}/delete" method="POST">
+           <button type="submit" class="btn btn-danger">Delete Game</button>
+       </form>
+       <a href="/" class="btn btn-secondary">Return Home</a>
+   </div>
+</div>

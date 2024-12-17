@@ -1,0 +1,32 @@
+<div class="publisher-details">
+    <h1>{{publisher.name}}</h1>
+    
+    
+    <div class="publisher-games">
+        <h2>Games by {{publisher.name}}</h2>
+        
+        {{#if games.length}}
+            <div class="games-list">
+                {{#each games}}
+                    <div class="game-item">
+                        <h3><a href="/games/{{this.id}}">{{this.title}}</a></h3>
+                        <p>Genre: {{this.genre.name}}</p>
+                        <p>Release Date: {{this.releaseDate}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            <p>no game found</p>
+        {{/if}}
+    </div>
+    <div class="button-group">
+        <a href="/publishers/{{publisher.id}}/edit" class="btn btn-primary">Edit Publisher</a>
+        
+        <form action="/publishers/{{publisher.id}}/delete" method="POST">
+            <button type="submit" class="btn btn-danger">Delete Publisher</button>
+        </form>
+        
+        <a href="/" class="btn btn-secondary">Return Home</a>
+    </div>
+
+</div>

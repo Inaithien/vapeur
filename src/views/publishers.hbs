@@ -1,0 +1,16 @@
+<div class="publishers-list">
+   <h1>Publishers</h1>
+   
+   
+
+   {{#each publishers}}
+       <div class="publisher-item">
+           <h2><a href="/publishers/{{this.id}}">{{this.name}}</a></h2>
+           
+       </div>
+   {{/each}}
+   <div class="button-group">
+       <a href="/publishers/create" class="btn btn-primary">Create New Publisher</a>
+       <a href="/" class="btn btn-secondary">Return Home</a>
+   </div>
+</div>

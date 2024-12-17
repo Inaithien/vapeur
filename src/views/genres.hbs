@@ -1,0 +1,11 @@
+<div class="genres-list">
+    <h1>All Genres</h1>
+    
+    {{#each genres}}
+        <div class="genre-item">
+            <h2><a href="/genres/{{this.id}}">{{this.name}}</a></h2>
+        </div>
+    {{/each}}
+        <a href="/" class="btn btn-secondary">Return Home</a>
+
+</div>

@@ -1,0 +1,19 @@
+<div class="genre-details">
+    <h1>{{genre.name}} Games</h1>
+    
+    {{#if games.length}}
+        <div class="games-in-genre">
+            {{#each games}}
+                <div class="game-item">
+                    <h2><a href="/games/{{this.id}}">{{this.title}}</a></h2>
+                    <p>Publisher: {{this.publisher.name}}</p>
+                    <p>Release Date: {{this.releaseDate}}</p>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <p>No games found in this genre.</p>
+    {{/if}}
+        <a href="/" class="btn btn-secondary">Return Home</a>
+
+</div>
