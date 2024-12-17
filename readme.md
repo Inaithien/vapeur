@@ -1,3 +1,5 @@
+Membre du group : Huy et sa galère
+
 Un site qui concerne comme un gallery de jeux vidéo en utilisant nodejs , express , prisma , nodemon , hbs . Ce projet utiliser méthod MVC 
 
 MVC DOC : https://docs.phalcon.io/4.1/mvc/
