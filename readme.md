@@ -23,8 +23,6 @@ create client : npx prisma generate
 
 hbs : npm install hbs 
 
-apres tous avoir installé . allez-vous au file package.json et voir s'il exist ["start": "nodemon src/main.js"] dans le script , si non ajoutez-le . donc maintenant vous mettez npm start pour debug .
-
-
+apres tous avoir installé . allez-vous au file package.json et voir s'il exist ["start": "nodemon src/main.js"] dans le script , si non ajoutez-le . donc maintenant vous mettez npm start pour debug . quand vous avez fini setting up votre db , met node prisma/seed.js dans terminal donc le data va implémenter avant de commencer donc on peux test le program plus facilement
 
 
