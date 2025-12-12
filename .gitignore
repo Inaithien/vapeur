@@ -1,3 +1,8 @@
 node_modules
 # Keep environment variables out of version control
 .env
+
+# Environment & Secrets
+.env
+db_password.txt
+*.log

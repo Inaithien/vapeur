@@ -1,0 +1,56 @@
+﻿services:
+  # MySQL Database Service
+  mysql:
+    image: mysql:8.0
+    container_name: vapeur_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_DATABASE: vapeur_db
+      MYSQL_USER: vapeur_user
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+    secrets:
+      - db_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - vapeur_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "vapeur_user", "-pazerty123456"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Node.js Application Service
+  app:
+    build: .
+    container_name: vapeur_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "mysql://vapeur_user:azerty123456@mysql:3306/vapeur_db"
+      PORT: 3000
+      NODE_ENV: production
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - vapeur_network
+    secrets:
+      - db_password
+
+# Define secrets
+secrets:
+  db_password:
+    file: ./db_password.txt
+
+# Define volumes
+volumes:
+  mysql_data:
+    driver: local
+
+# Define networks
+networks:
+  vapeur_network:
+    driver: bridge
